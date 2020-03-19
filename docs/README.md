@@ -1,16 +1,17 @@
 ---
 home: true
 heroImage:
+title: a
 actionText: 快速上手 →
-actionLink: /zh/guide/
+actionLink: /guide/
 features:
-  - title: 简洁至上
-    details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-  - title: Vue驱动
-    details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-  - title: 高性能
-    details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: MIT Licensed | Copyright © 2018-present Evan You
+  - title: 丰富功能
+    details: 提炼了典型的业务模型，提供了丰富的功能组件
+  - title: 最佳实践
+    details: 合理的框架选择，良好的工程实践助你持续产出高质量代码
+  - title: 最新技术栈
+    details: 使用 vue/vuex/vue-router/ant-design-vue 等前端前沿技术开发
+  - title: 权限验证
+    details: 多种权限策略，根据权限动态加载路由
+footer: MIT Licensed | Copyright © 2020-present Jaciky
 ---
-
-# Hello VuePress!

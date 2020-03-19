@@ -16,6 +16,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f "https://${access_token}@github.com/PanJiaChen/vue-element-admin-site.git" master:gh-pages
+git push -f "https://${access_token}@github.com/Jaciky/vue-antd-admin-site.git" master:gh-pages
 
 cd -

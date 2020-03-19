@@ -1,6 +1,6 @@
 module.exports = {
   title: "vue-antd-admin",
-  description: "一个中后台单页项目",
+  description: "do & unremitting",
   base: "/vue-antd-admin-site/",
   // head: [
   //   [
@@ -19,9 +19,8 @@ module.exports = {
     repo: "Jaciky/vue-antd-admin", // 仓库地址
     docsRepo: "Jaciky/vue-antd-admin-site", // 文档地址
     docsDir: "docs",
-    // sidebar: "auto",
     editLinks: true,
-    lastUpdated: "Last Updated", // string | boolean
+    lastUpdated: "最近更新",
     algolia: {
       apiKey: "<API_KEY>",
       indexName: "<INDEX_NAME>"
@@ -39,140 +38,56 @@ module.exports = {
             text: "组件",
             items: [
               {
-                text: "富文本",
-                link: "/feature/component/rich-editor.md"
-              },
-              {
-                text: "Markdown 编辑器",
-                link: "/feature/component/markdown-editor.md"
-              },
-              {
-                text: "Svg Icon 图标",
-                link: "/feature/component/svg-icon.md"
-              },
-              {
-                text: "复制粘贴",
-                link: "/feature/component/clipboard.md"
-              },
-              {
-                text: "Excel",
-                link: "/feature/component/excel.md"
-              },
-              {
                 text: "Pagination 分页",
                 link: "/feature/component/pagination.md"
-              },
-              {
-                text: "Tree Table 树形表格",
-                link: "/feature/component/tree-table.md"
-              }
-            ]
-          },
-          {
-            text: "Script",
-            items: [
-              {
-                text: "Svgo",
-                link: "/feature/script/svgo.md"
-              },
-              {
-                text: "New",
-                link: "/feature/script/new.md"
               }
             ]
           }
         ]
       },
-      // {
-      //   text: "生态系统",
-      //   items: [
-      //     {
-      //       text: "项目",
-      //       items: [
-      //         {
-      //           text: "vue-element-admin",
-      //           link: "https://github.com/PanJiaChen/vue-element-admin"
-      //         },
-      //         {
-      //           text: "vue-admin-template",
-      //           link: "https://github.com/PanJiaChen/vue-admin-template"
-      //         },
-      //         {
-      //           text: "electron-vue-admin",
-      //           link: "https://github.com/PanJiaChen/electron-vue-admin"
-      //         },
-      //         {
-      //           text: "vue-typescript-admin-template",
-      //           link: "https://github.com/Armour/vue-typescript-admin-template"
-      //         },
-      //         {
-      //           text: "awesome-project",
-      //           link:
-      //             "https://github.com/PanJiaChen/vue-element-admin/issues/2312"
-      //         },
-      //         {
-      //           text: "vue-countTo",
-      //           link: "https://github.com/PanJiaChen/vue-countTo"
-      //         },
-      //         {
-      //           text: "vue-split-pane",
-      //           link: "https://github.com/PanJiaChen/vue-split-pane"
-      //         },
-      //         {
-      //           text: "awesome-bookmarks",
-      //           link: "https://github.com/PanJiaChen/awesome-bookmarks",
-      //           type: "ZH"
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       text: "帮助",
-      //       items: [
-      //         {
-      //           text: "国内文档(解决Github.io访问慢的问题)",
-      //           link: "https://panjiachen.gitee.io/vue-element-admin-site/zh"
-      //         },
-      //         {
-      //           text: "Gitter讨论组",
-      //           link: "https://gitter.im/vue-element-admin/discuss"
-      //         },
-      //         {
-      //           text: "作者Blog",
-      //           link: "https://jianshiapp.com/circles/1209"
-      //         },
-      //         {
-      //           text: "常见问题",
-      //           link: "/guide/other/faq.md"
-      //         },
-      //         {
-      //           text: "QQ群",
-      //           link:
-      //             "https://github.com/PanJiaChen/vue-element-admin/issues/602"
-      //         },
-      //         {
-      //           text: "作者个人微博",
-      //           link: "https://weibo.com/u/3423485724"
-      //         },
-      //         {
-      //           text: "更新记录",
-      //           link: "https://github.com/PanJiaChen/vue-element-admin/releases"
-      //         }
-      //       ]
-      //     }
-      //   ]
-      // },
+      {
+        text: "生态系统",
+        items: [
+          {
+            text: "项目",
+            items: [
+              {
+                text: "vue-antd-admin",
+                link: "https://github.com/Jaciky/vue-antd-admin"
+              }
+            ]
+          },
+          {
+            text: "帮助",
+            items: [
+              {
+                text: "常见问题",
+                link: "/guide/other/faq.md"
+              },
+              {
+                text: "关于作者",
+                link: "/about/"
+              },
+              {
+                text: "更新记录",
+                link: "https://github.com/Jaciky/vue-antd-admin/releases"
+              }
+            ]
+          }
+        ]
+      },
       {
         text: "zxm",
         link: "/learn/"
       },
-      {
-        text: "捐赠",
-        link: "/donate/"
-      },
-      {
-        text: "招聘",
-        link: "/job/"
-      }
+      // {
+      //   text: "捐赠",
+      //   link: "/donate/"
+      // },
+      // {
+      //   text: "招聘",
+      //   link: "/job/"
+      // }
     ],
     sidebar: {
       "/guide/": [
@@ -188,7 +103,6 @@ module.exports = {
             "/guide/essentials/new-page.md",
             "/guide/essentials/style.md",
             "/guide/essentials/server.md",
-            "/guide/essentials/mock-api.md",
             "/guide/essentials/import.md",
             "/guide/essentials/deploy.md",
             "/guide/essentials/env.md"
@@ -202,12 +116,10 @@ module.exports = {
             "/guide/advanced/eslint.md",
             "/guide/advanced/git-hook.md",
             "/guide/advanced/style-guide.md",
-            "/guide/advanced/lazy-loading.md",
             "/guide/advanced/chart.md",
             "/guide/advanced/icon.md",
             "/guide/advanced/cdn.md",
             "/guide/advanced/theme.md",
-            "/guide/advanced/i18n.md",
             "/guide/advanced/error.md",
             "/guide/advanced/webpack.md"
           ]
@@ -218,18 +130,7 @@ module.exports = {
           children: ["/guide/other/faq.md", "/guide/other/release-notes.md"]
         }
       ],
-      "/feature/component/": [
-        "/feature/component/rich-editor.md",
-        "/feature/component/markdown-editor.md",
-        "/feature/component/svg-icon.md",
-        "/feature/component/clipboard.md",
-        "/feature/component/excel.md",
-        "/feature/component/pagination.md",
-        "/feature/component/tree-table.md",
-        "/feature/script/svgo.md",
-        "/feature/script/new.md"
-      ],
-      "/feature/script/": ["/feature/script/svgo.md", "/feature/script/new.md"]
+      "/feature/component/": ["/feature/component/pagination.md"]
     }
   }
 };
