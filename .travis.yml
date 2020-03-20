@@ -1,9 +1,13 @@
-sudo: required
-language: node_js
-node_js: stable
-script: bash ./deploy.sh
-branches:
-  only:
-  - master
-notifications:
-  email: false
+language: node_js # node环境
+node_js:
+  - lts/*
+script:
+  - npm run docs:build # 执行命令
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs/.vuepress/dist # 部署的文件夹文件
+  github_token: access_token # travis服务上的token变量
+  keep_history: true
+  on:
+    branch: master
