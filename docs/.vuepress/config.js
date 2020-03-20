@@ -78,8 +78,9 @@ module.exports = {
       },
       {
         text: "zxm",
-        link: "/learn/"
-      },
+        link: "/learn/",
+        items: [{ text: "markdown", link: "/learn/markdown/" }]
+      }
       // {
       //   text: "捐赠",
       //   link: "/donate/"
@@ -130,7 +131,14 @@ module.exports = {
           children: ["/guide/other/faq.md", "/guide/other/release-notes.md"]
         }
       ],
-      "/feature/component/": ["/feature/component/pagination.md"]
+      "/feature/component/": ["/feature/component/pagination.md"],
+      "/learn/": [
+        {
+          title: "markdown",
+          // collapsable: false,
+          children: ["/learn/markdown/"]
+        }
+      ]
     }
   }
 };
