@@ -2,7 +2,7 @@
 home: true
 heroImage:
 title: a
-actionText: 快速上手1 →
+actionText: 快速上手 →
 actionLink: /guide/
 features:
   - title: 丰富功能
