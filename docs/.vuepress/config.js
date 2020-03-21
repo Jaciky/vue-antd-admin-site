@@ -78,8 +78,10 @@ module.exports = {
       },
       {
         text: "zxm",
-        link: "/learn/",
-        items: [{ text: "markdown", link: "/learn/markdown/" }]
+        items: [
+          { text: "markdown", link: "/learn/markdown/" },
+          { text: "javascript", link: "/learn/javascript/" }
+        ]
       }
       // {
       //   text: "捐赠",
@@ -127,7 +129,6 @@ module.exports = {
         },
         {
           title: "其它",
-          collapsable: false,
           children: ["/guide/other/faq.md", "/guide/other/release-notes.md"]
         }
       ],
@@ -135,8 +136,13 @@ module.exports = {
       "/learn/": [
         {
           title: "markdown",
-          // collapsable: false,
+          collapsable: true,
           children: ["/learn/markdown/"]
+        },
+        {
+          title: "javascript",
+          collapsable: true,
+          children: ["/learn/javascript/"]
         }
       ]
     }
