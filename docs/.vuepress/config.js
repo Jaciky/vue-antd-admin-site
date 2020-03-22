@@ -133,17 +133,15 @@ module.exports = {
         }
       ],
       "/feature/component/": ["/feature/component/pagination.md"],
-      "/learn/": [
-        {
-          title: "markdown",
-          collapsable: true,
-          children: ["/learn/markdown/"]
-        },
-        {
-          title: "javascript",
-          collapsable: true,
-          children: ["/learn/javascript/"]
-        }
+      "/learn/markdown/": ["/learn/markdown/"],
+      "/learn/javascript": [
+        "/learn/javascript/",
+        "/learn/javascript/this.md",
+        "/learn/javascript/data_type.md",
+        "/learn/javascript/function.md",
+        "/learn/javascript/prototype.md",
+        "/learn/javascript/es6.md",
+        "/learn/javascript/promise.md"
       ]
     }
   }
