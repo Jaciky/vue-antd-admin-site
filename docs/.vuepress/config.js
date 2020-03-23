@@ -77,10 +77,15 @@ module.exports = {
         ]
       },
       {
-        text: "zxm",
+        text: "知识体系",
+        link: "/learn/",
         items: [
-          { text: "markdown", link: "/learn/markdown/" },
-          { text: "javascript", link: "/learn/javascript/" }
+          { text: "概览", link: "/learn/map/" },
+          { text: "HTML", link: "/learn/html/" },
+          { text: "CSS", link: "/learn/css/" },
+          { text: "Javascript", link: "/learn/javascript/this.md" },
+          { text: "Vuejs", link: "/learn/Vuejs/" },
+          { text: "Markdown", link: "/learn/markdown/" }
         ]
       }
       // {
@@ -133,9 +138,8 @@ module.exports = {
         }
       ],
       "/feature/component/": ["/feature/component/pagination.md"],
-      "/learn/markdown/": ["/learn/markdown/"],
+      // "/learn/markdown/": ["/learn/markdown/"],
       "/learn/javascript": [
-        "/learn/javascript/",
         "/learn/javascript/this.md",
         "/learn/javascript/data_type.md",
         "/learn/javascript/function.md",
