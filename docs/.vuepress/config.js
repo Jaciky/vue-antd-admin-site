@@ -13,8 +13,7 @@ module.exports = {
   // ],
   themeConfig: {
     // logo: "/home.png",
-    // sidebarDepth: 3,
-    smoothScroll: true, // 页面滚动效果
+    // smoothScroll: true, // 页面滚动效果
     editLinkText: "在 GitHub 上编辑此页",
     repo: "Jaciky/vue-antd-admin", // 仓库地址
     docsRepo: "Jaciky/vue-antd-admin-site", // 文档地址
@@ -28,20 +27,14 @@ module.exports = {
     nav: [
       {
         text: "指南",
-        ariaLabel: "Language Menu",
         link: "/guide/"
       },
       {
-        text: "功能",
+        text: "组件",
         items: [
           {
-            text: "组件",
-            items: [
-              {
-                text: "Pagination 分页",
-                link: "/feature/component/pagination.md"
-              }
-            ]
+            text: "Pagination 分页",
+            link: "/feature/component/pagination.md"
           }
         ]
       },
@@ -83,19 +76,19 @@ module.exports = {
           { text: "概览", link: "/learn/map/" },
           { text: "HTML", link: "/learn/html/" },
           { text: "CSS", link: "/learn/css/" },
-          { text: "Javascript", link: "/learn/javascript/this.md" },
-          { text: "Vuejs", link: "/learn/Vuejs/" },
+          { text: "Javascript", link: "/learn/javascript/" },
+          { text: "Vuejs", link: "/learn/vuejs/" },
           { text: "Markdown", link: "/learn/markdown/" }
         ]
+      },
+      {
+        text: "捐赠",
+        link: "/donate/"
+      },
+      {
+        text: "招聘",
+        link: "/job/"
       }
-      // {
-      //   text: "捐赠",
-      //   link: "/donate/"
-      // },
-      // {
-      //   text: "招聘",
-      //   link: "/job/"
-      // }
     ],
     sidebar: {
       "/guide/": [
@@ -105,12 +98,14 @@ module.exports = {
           children: [
             "/guide/",
             "/guide/essentials/layout.md",
-            "/guide/essentials/router-and-nav.md",
-            "/guide/essentials/permission.md",
-            "/guide/essentials/tags-view.md",
-            "/guide/essentials/new-page.md",
+            "/guide/essentials/nav.md",
             "/guide/essentials/style.md",
+            "/guide/essentials/login.md",
+            "/guide/essentials/adntd.md",
             "/guide/essentials/server.md",
+            "/guide/essentials/icon.md",
+            "/guide/essentials/theme.md",
+            "/guide/essentials/codeing_style.md",
             "/guide/essentials/import.md",
             "/guide/essentials/deploy.md",
             "/guide/essentials/env.md"
@@ -120,14 +115,15 @@ module.exports = {
           title: "进阶",
           collapsable: false,
           children: [
-            "/guide/advanced/cors.md",
             "/guide/advanced/eslint.md",
-            "/guide/advanced/git-hook.md",
-            "/guide/advanced/style-guide.md",
+            "/guide/advanced/router.md",
+            "/guide/advanced/vuex.md",
+            "/guide/advanced/permission.md",
+            "/guide/advanced/axios.md",
+            "/guide/advanced/form.md",
+            "/guide/advanced/list.md",
             "/guide/advanced/chart.md",
-            "/guide/advanced/icon.md",
-            "/guide/advanced/cdn.md",
-            "/guide/advanced/theme.md",
+            "/guide/advanced/defend.md",
             "/guide/advanced/error.md",
             "/guide/advanced/webpack.md"
           ]
@@ -138,14 +134,35 @@ module.exports = {
         }
       ],
       "/feature/component/": ["/feature/component/pagination.md"],
-      // "/learn/markdown/": ["/learn/markdown/"],
-      "/learn/javascript": [
-        "/learn/javascript/this.md",
-        "/learn/javascript/data_type.md",
-        "/learn/javascript/function.md",
-        "/learn/javascript/prototype.md",
-        "/learn/javascript/es6.md",
-        "/learn/javascript/promise.md"
+      "/learn/": [
+        {
+          title: "HTML",
+          collapsable: false,
+          children: []
+        },
+        {
+          title: "CSS",
+          collapsable: false,
+          children: []
+        },
+        {
+          title: "Javascript",
+          collapsable: false,
+          children: [
+            "/learn/javascript/",
+            "/learn/javascript/this.md",
+            "/learn/javascript/data_type.md",
+            "/learn/javascript/function.md",
+            "/learn/javascript/prototype.md",
+            "/learn/javascript/es6.md",
+            "/learn/javascript/promise.md"
+          ]
+        },
+        {
+          title: "Vuejs",
+          collapsable: false,
+          children: []
+        }
       ]
     }
   }

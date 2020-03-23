@@ -72,9 +72,6 @@ sidebar: "auto"
 - [CSS Module](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)
 - [ES6 Module](http://es6.ruanyifeng.com/#docs/module)
 - [CommonJS](https://zh.wikipedia.org/wiki/CommonJS)
-- [SeaJS](<(https://seajs.github.io/seajs/docs/)>)/[CMD](https://github.com/seajs/seajs/issues/242)
-- [RequireJS](https://requirejs.org/)/[AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
-- [AMD 和 CMD 的区别有哪些？](https://www.zhihu.com/question/20351507)
 
 ### 代码管理
 
@@ -178,19 +175,11 @@ sidebar: "auto"
 
 ### 移动 Web
 
-- [WebView](https://developer.android.com/reference/android/webkit/WebView)
-
-  - [Zepto](https://zeptojs.com/)
-  - [jQuery Mobile](https://jquerymobile.com/)
-
-- Web to Native
-
-  - [Weex](https://weex.apache.org/zh/)
-  - [React Native](https://reactnative.cn/)
-  - [Flutter](https://flutterchina.club/)
-  - [uniapp](https://uniapp.dcloud.io/)
-
+- [uniapp](https://uniapp.dcloud.io/)
 - [小程序](https://mp.weixin.qq.com/cgi-bin/wx)
+- [Weex](https://weex.apache.org/zh/)
+- [Flutter](https://flutterchina.club/)
+- [React Native](https://reactnative.cn/)
 - [响应式网页设计](https://zh.wikipedia.org/wiki/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1)
 
 ## 社区发展
