@@ -1,6 +1,6 @@
 module.exports = {
   title: "vue-antd-admin",
-  description: "do & unremitting",
+  description: "基于Vue的中后台系统",
   base: "/vue-antd-admin-site/",
   // head: [
   //   [
