@@ -11,10 +11,10 @@ install:
   - npm install # npm ci
 
 before_install:
-  - export TZ='Asia/Hangzhou' # 设置时区 非必须
+  - export TZ='Asia/Shanghai' # 设置时区 非必须
 
 script:
-  - set -e
+  - set -e # 确保脚本抛出遇到的错误
   - npm run docs:build # 执行命令
 
 notifications:
