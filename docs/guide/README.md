@@ -15,49 +15,45 @@
 合理的目录结构是一个项目重要的根基，本项目根据实践经验总结生成了一个完整的开发框架，下面是整个项目的目录结构。
 
 ```bash
-├── dist                                        # 打包输出目录
+├── dist                            # 打包输出目录
 ├── public
-├── src                                         # 源码目录
-│   ├── api                                     # 接口统一管理
+├── src                             # 源码目录
+│   ├── api                         # 接口统一管理
 │   │   ├── common.js
 │   │   └── system.js
-│   ├── assets                                  # 静态资源
-│   │   ├── icons                               # 字体图标
+│   ├── assets                      # 静态资源
+│   │   ├── icons                   # 字体图标
 │   │   ├── images
 │   │   └── styles
-│   ├── components                              # 全局组件
-│   ├── config                                  # 基本配置
-│   ├── directives                              # 全局指令
-│   ├── filters                                 # 全局过滤器
-│   ├── libs                                    # 工具库
-│   │   ├── global.js                           # 全局常量及公用函数类组件
-│   │   ├── request.js                          # axios封装
-│   │   ├── rule.js                             # 公用校验规则
-│   │   ├── utils.js                            # 工具函数
-│   │   └── validate.js                         # 公用校验方法
-│   ├── mixins                                  # 全局混入
-│   ├── plugins                                 # 插件
-│   ├── router                                  # 路由
-│   ├── store                                   # 全局状态管理
-│   ├── views                                   # 所有页面
-│   ├── App.vue                                 # 入口页面
-│   ├── main.js                                 # 入口文件 初始化
-│   └── permission.js                           # 权限
-├── .env.development                            # 环境变量 - 开发环境
-├── .env.prod                                   # 环境变量 - 生产环境
-├── .env.test                                   # 环境变量 - 测试环境
-├── .eslintrc.js                                # 代码格式校验
+│   ├── components                  # 全局组件
+│   ├── config                      # 基本配置
+│   ├── directives                  # 全局指令
+│   ├── filters                     # 全局过滤器
+│   ├── libs                        # 工具库
+│   │   ├── global.js               # 全局常量及公用函数类组件
+│   │   ├── request.js              # axios封装
+│   │   ├── rule.js                 # 公用校验规则
+│   │   ├── utils.js                # 工具函数
+│   │   └── validate.js             # 公用校验方法
+│   ├── mixins                      # 全局混入
+│   ├── plugins                     # 插件
+│   ├── router                      # 路由
+│   ├── store                       # 全局状态管理
+│   ├── views                       # 所有页面
+│   ├── App.vue                     # 入口页面
+│   ├── main.js                     # 入口文件 初始化
+│   └── permission.js               # 权限
+├── .env.development                # 环境变量 - 开发环境
+├── .env.prod                       # 环境变量 - 生产环境
+├── .env.test                       # 环境变量 - 测试环境
+├── .eslintrc.js                    # 代码格式校验
 ├── .gitignore
-├── .travis.yml                                 # 自动化CI配置
-├── babel.config.js                             # babel配置
+├── .travis.yml                     # 自动化CI配置
+├── babel.config.js                 # babel配置
 ├── LICENSE
 ├── package-lock.json
 ├── package.json
-├── prettier.config.js                          # prettier代码格式
+├── prettier.config.js              # prettier代码格式
 ├── README.me
-└── vue.config.js                               # 脚手架配置
+└── vue.config.js                   # 脚手架配置
 ```
-
-:::tip 建议
-如果你是初学者，请先不要尝试去理解每一个文件的含义，请在实现功能的基础上学习和体会。
-:::

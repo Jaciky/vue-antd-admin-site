@@ -1,8 +1,14 @@
-language: node_js # node环境
+language: node_js # 指定环境为 Node.js
+
 node_js:
   - lts/*
+
+before_install:
+  - export TZ='Asia/Hangzhou' # 设置时区 非必须
+
 script:
   - npm run docs:build # 执行命令
+
 deploy:
   provider: pages
   skip_cleanup: true
@@ -11,3 +17,6 @@ deploy:
   keep_history: true
   on:
     branch: master
+
+notifications:
+  email: false
