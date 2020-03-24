@@ -13,7 +13,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   local_dir: docs/.vuepress/dist # 部署的文件夹文件
-  github_token: access_token # travis服务上的token变量
+  github_token: GH_TOKEN # travis服务上的token变量
   keep_history: true
   on:
     branch: master
