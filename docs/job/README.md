@@ -2,4 +2,4 @@
 sidebar: false
 ---
 
-# 招聘
+# 招聘信息
