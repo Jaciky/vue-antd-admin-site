@@ -29,7 +29,7 @@ meta: {
   component: Layout,
   redirect: '/message/index',
   hidden: true, // 不在侧边栏线上
-  alwaysShow: true, // 实在显示
+  alwaysShow: true, // 始终显示
   meta: {
     title: '消息反馈',
     icon: 'code',
@@ -129,10 +129,11 @@ meta: {
 
 **数据**
 
-在对数据的处理上，思考了很久也参考了很多开源项目，如开源项目 [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin/)的菜单设计，本项目很多地方都参考和学习了该项目，比如路由和权限，十分感谢。在对菜单的设计上，判断逻辑和状态过于繁琐，在对代码进行审视时，发现不宜维护和阅读，于是想着在渲染模版时就对数据先按约束规则进行处理，然后就有了如下的方案：
+在对数据的处理上，思考了很久也参考了很多开源项目，如开源项目 [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin/)的菜单设计，本项目很多地方都参考和学习了该项目，比如路由和权限，十分感谢。在对菜单的设计上，判断逻辑和状态过于繁琐，在对代码进行审视时，发现不利于维护和阅读，于是想着在渲染模版时就对数据先按约束规则进行处理，然后就有了如下的方案：
 
 ```js
 computed: {
+  // 从路由获得原始数据 通过定制方法过滤
     menus() {
       const munus = this.$store.getters.routes
       return this.filterRoutes(munus)
@@ -153,12 +154,15 @@ computed: {
 
       routes.forEach(item => {
         if (!item.hidden) {
+          // 获取所以子路由且没有被隐藏即 hidden：false
           const showingChildren = item.children?.filter(item => !item.hidden)
 
           if (showingChildren?.length == 0) {
+            // 当父级路由没有子路由时，显示父级路由本身，删除空的children字段
             delete item.children
             res.push(item)
           } else if (showingChildren?.length == 1) {
+            // 子路由中有且只有一个显示的路由
             !item.alwaysShow ? res.push(showingChildren[0]) : res.push(item)
           } else {
             res.push(item)
@@ -171,3 +175,5 @@ computed: {
     }
   }
 ```
+
+通过单纯的数据处理，避免了模版中混入复杂的判断逻辑，结构与数据逻辑分离，代码审视变得容易，且易于维护和扩展更多的约束条件。
