@@ -21,19 +21,19 @@ meta: {
 }
 ```
 
-**示例：**
+**一个包含所有约束字段的示例：**
 
 ```js
 {
   path: '/message',
   component: Layout,
   redirect: '/message/index',
-  hidden: true, // 不在侧边栏线上
-  alwaysShow: true, // 始终显示
+  hidden: true, // 不在菜单中显示
+  alwaysShow: true, // 不论子路由显示个数，父级菜单始终显示
   meta: {
     title: '消息反馈',
     icon: 'code',
-    roles: ['admin','editor'] //你可以在根路由设置权限，这样它下面所以的子路由都继承了这个权限
+    roles: ['admin','editor'] // 你可以在根路由设置权限，这样它下面所以的子路由都继承了这个权限
   },
   children: [
     {
@@ -42,7 +42,7 @@ meta: {
       name: 'Message',
       meta: {
         title: '消息反馈',
-        icon: 'message'
+        icon: 'message' // 一般情况下，子菜单不会设置icon除非只有一个子路由显示
         role: ['admin','editor'], // 一个子路由设置自己的权限
         cache: true // 会被 <keep-alive> 缓存
       }

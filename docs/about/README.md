@@ -2,6 +2,8 @@
 sidebar: false
 ---
 
-# about
+# 联系我
 
-联系我：1104670232@qq.com
+**email:** 1104670232@qq.com
+
+**wechat:** teartouch

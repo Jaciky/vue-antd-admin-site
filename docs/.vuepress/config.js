@@ -58,8 +58,8 @@ module.exports = {
                 link: "/guide/other/faq.md"
               },
               {
-                text: "关于作者",
-                link: "/about/"
+                text: "捐赠",
+                link: "/donate/"
               },
               {
                 text: "更新记录",
@@ -82,13 +82,13 @@ module.exports = {
         ]
       },
       {
-        text: "捐赠",
-        link: "/donate/"
-      },
-      {
-        text: "招聘",
-        link: "/job/"
+        text: "about",
+        link: "/about/"
       }
+      // {
+      //   text: "招聘",
+      //   link: "/job/"
+      // }
     ],
     sidebar: {
       "/guide/": [
