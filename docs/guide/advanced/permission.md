@@ -110,11 +110,12 @@ router.addRoutes(store.state.auth.addRoutes);
 
 3. 判断用户是否已经登录，分情况：
 
-   - 访问的是登录页 `/login`，重定向到指定页面 `next({ path: "/" })`
-   - 访问的是其他页面，就正常访问并没有多余的判断
-   - 如果某些页面可以免登陆访问，这里提供一个全局变量 `whiteList`，存放所有免登陆页面地址，默认值有 `["/login"]`
+   - 已登录访问的是登录页 `/login`，重定向到指定页面 `next({ path: "/" })`
+   - 已登录访问的是其他页面，就正常访问并没有多余的判断
+   - 未登录访问非登录页，将会重定向到登录页
+   - 未登录如果某些页面可以免登陆页面，可正常访问，这里提供一个全局变量 `whiteList`，存放所有免登陆页面地址，默认值有 `["/login"]`
 
-4. 在跳转前都有判断用户信息是否存在，不存在就会拉取一下，并挂载路由数据，这是为了防止浏览器刷新，`store` 中数据丢失，前面也提到过为什么不把用户信息存到本地。
+4. 在跳转前都有判断用户信息是否存在，不存在就会拉取一下，并挂载路由数据，这是为了防止浏览器刷新导致 `store` 中数据丢失，前面也提到过为什么不把用户信息存到本地。
 
 **以下是完整代码** [查看源代码](https://github.com/Jaciky/vue-antd-admin/blob/master/src/permission.js)
 
@@ -210,20 +211,14 @@ import "./permission";
 import store from "@/store";
 
 export default {
-  inserted(el, binding, vnode) {
+  inserted(el, binding) {
     const { value } = binding;
-    const roles = store.getters && store.getters.roles;
 
-    if (value && value instanceof Array && value.length > 0) {
-      const permissionRoles = value;
+    if (value && value instanceof Array) {
+      const roles = store.getters?.roles;
+      const hasPermission = roles.some(role => value.includes(role));
 
-      const hasPermission = roles.some(role => permissionRoles.includes(role));
-
-      if (!hasPermission) {
-        el.parentNode && el.parentNode.removeChild(el);
-      }
-    } else {
-      throw new Error(`need roles! Like v-auth="['admin','editor']"`);
+      !hasPermission && el.parentNode?.removeChild(el);
     }
   }
 };
@@ -236,6 +231,45 @@ export default {
 ```
 
 **组件式：**
+
+```html
+<script>
+  import store from "@/store";
+
+  export default {
+    functional: true,
+    props: {
+      authority: {
+        type: Array,
+        required: true
+      }
+    },
+    render(h, context) {
+      const roles = store.getters?.roles;
+      const { props, scopedSlots } = context;
+
+      const hasPermission = roles.some(role => props.authority.includes(role));
+
+      return hasPermission ? scopedSlots.default() : null;
+    }
+  };
+</script>
+```
+
+此组件为**函数式组件**并被注册为全局组件，使用方式
+
+```html
+<Authorized :authority="[admin]">
+  <a-button @click="delete">删除</a-button>
+</Authorized>
+```
+
+**两种方式的区别：**
+
+- 指令式： 使用简洁方便，但不适合有动态改变权限的场景
+- 组件式： 使用灵活，更为细粒度的控制，可以实用于有动态改变权限的需求
+
+可根据业务场景灵活选择使用哪种方式
 
 ## axios 拦截器
 
