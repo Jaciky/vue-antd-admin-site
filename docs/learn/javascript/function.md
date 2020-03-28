@@ -65,9 +65,11 @@ function getMaxNumStr() {
 
 :::details 解析
 
-1. 准备一个空的 对象 `{}`，通过循环字符串的每个字符来看，如果 `{}` 里没有这个字符，就把这个字符的数目设为 1，如果有则数目++
+思路：利用对象 key 值唯一的特性
 
-2. 循环 `{}` 里的字符，只要存在，就把他的数目赋给一个变量，并且每次都比较新的字符数量和这个变量的大小，如果比变量大，则更新变量的值，最后这个变量的值就是最多字符的数目,而最多的字符就是 json 里这个字符
+1. 准备一个空的对象 obj1 `{}`，通过循环字符串的每个字符来看，如果 obj1 `{}` 里没有这个字符，就作为对象 obj1 的一个属性并把值设为 1，如果有则数目++
+
+2. 声明一个新对象 obj2`{}`，遍历 obj1 `{}`找出值最大的 key 及 value，信息保存到对象 obj2`{}`中作为函数的返回值
 
 ```js
 var str = "sssfgtdfssddfsssfssss";
@@ -90,14 +92,14 @@ function getMaxNumStr(str) {
 
   var result = {
     num: 0,
-    value: ""
+    key: ""
   };
 
   // json = {s: 7, g: 2, d: 3}
 
   for (var k in json) {
     if (json[k] > num) {
-      result.value = k;
+      result.key = k;
       result.num = json[k];
     }
   }
