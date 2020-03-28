@@ -18,7 +18,7 @@
 
 ## 一些练习题
 
-**以下代码输入什么？**
+**以下代码输出什么？**
 
 ```js
 for (var i = 0; i < 5; i++) {
@@ -27,6 +27,31 @@ for (var i = 0; i < 5; i++) {
   }, 1000 * i);
 }
 ```
+
+:::details 解析
+结果：输出 5 个 5 ，每次间隔 1 秒
+
+可以将以上代码改写为：
+
+```js
+setTimeout(function() {
+  console.log(5);
+}, 0);
+setTimeout(function() {
+  console.log(5);
+}, 1000);
+setTimeout(function() {
+  console.log(5);
+}, 2000);
+setTimeout(function() {
+  console.log(5);
+}, 3000);
+setTimeout(function() {
+  console.log(5);
+}, 4000);
+```
+
+:::
 
 **找出字符串`str`中出现最多的字符**
 
@@ -40,36 +65,46 @@ function getMaxNumStr() {
 
 :::details 解析
 
-1.准备一个空的 json，通过循环字符串的每个字符来看，如果 json 里没有这个字符，就把这个字符的数目设为 1，如果有则数目++
+1. 准备一个空的 对象 `{}`，通过循环字符串的每个字符来看，如果 `{}` 里没有这个字符，就把这个字符的数目设为 1，如果有则数目++
 
-2.循环 json 里的字符，只要存在，就把他的数目赋给一个变量，并且每次都比较新的字符数量和这个变量的大小，如果比变量大，则更新变量的值，最后这个变量的值就是最多字符的数目
-
-而最多的字符就是 json 里这个字符
+2. 循环 `{}` 里的字符，只要存在，就把他的数目赋给一个变量，并且每次都比较新的字符数量和这个变量的大小，如果比变量大，则更新变量的值，最后这个变量的值就是最多字符的数目,而最多的字符就是 json 里这个字符
 
 ```js
 var str = "sssfgtdfssddfsssfssss";
-function max() {
+
+function getMaxNumStr(str) {
   var json = {};
+
   for (var i = 0; i < str.length; i++) {
     var k = str[i]; //k是所有字符,字符串也跟数组一样可以通过中括号下标方法取到每个子元素
+
     if (json[k]) {
       json[k]++; //json里有这个字符时，把这个字符的数量+1，
     } else {
       json[k] = 1; //否则把这个字符的数量设为1
     }
+
+    // 简写
+    // json[k] ? json[k]++ : (json[k] = 1);
   }
-  var num = 0;
-  var value = null;
+
+  var result = {
+    num: 0,
+    value: ""
+  };
+
+  // json = {s: 7, g: 2, d: 3}
+
   for (var k in json) {
-    //s、f、g、t、d
     if (json[k] > num) {
-      num = json[k];
-      value = k;
+      result.value = k;
+      result.num = json[k];
     }
   }
-  alert("出现最多的字符是:" + value + ",出现次数是:" + num);
+
+  return result;
 }
-max(str);
+getMaxNumStr(str); // {value: 's', num: 7}
 ```
 
 :::
@@ -121,10 +156,12 @@ function setThousandSeparator(value) {
 
   if ((!value && value != 0) || Number.isNaN(Number(value))) return "";
 
+  // 使用了数组解构 es6
   !Number.isInteger(Number(value))
     ? ([r, f] = value.toString().split("."))
     : (r = value.toString());
 
+  // 使用了正则表达式
   r = r.replace(/(\d)(?=(?:\d{3})+$)/g, "$1,"); // 将整数部分逢三一断
 
   if (f) {
@@ -153,11 +190,16 @@ function fn() {
   console.log(1);
 }
 
-function debounce(func, wait) {
+/**
+ * @param func 函数
+ * @param wait 延迟执行毫秒数
+ * @param immediate true 表立即执行
+ */
+function debounce(func, wait, immediate) {
   // ...
 }
 
-debounce(fn);
+debounce(fn, 1000, true);
 ```
 
 :::details 解析
@@ -375,21 +417,23 @@ unique(arr);
 :::details 解析
 
 ```js
-Array.prototype.unique = function() {
-  // n 为 hash 表，r 为临时数组
-  var n = {},
-    r = [];
-  for (var i = 0; i < this.length; i++) {
+function unique(arr) {
+  var n = {};
+  var r = [];
+
+  for (var i = 0; i < arr.length; i++) {
     // 如果 hash 表中没有当前项
-    if (!n[this[i]]) {
+    if (!n[arr[i]]) {
       // 存入 hash 表
-      n[this[i]] = true;
+      n[arr[i]] = true;
       // 把当前数组的当前项 push 到临时数组里面
-      r.push(this[i]);
+      r.push(arr[i]);
     }
   }
   return r;
-};
+}
+
+unique();
 ```
 
 :::
