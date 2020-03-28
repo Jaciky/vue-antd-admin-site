@@ -402,10 +402,10 @@ arr.sort(funtion(a, b) {
 
 **实现数组去重**
 
-前提：数组中的元素为基本类型
+前提：数组中的元素为基本类型，并过滤掉`undefined`、`NaN`、`Null`空值
 
 ```js
-var arr = [1, "a", 1, undefined, 3, 4, NaN, 4];
+var arr = [1, "a", 1, 3, undefined, "b", 4, "", NaN, 0];
 
 function unique(arr) {
   // ...
@@ -422,11 +422,8 @@ function unique(arr) {
   var r = [];
 
   for (var i = 0; i < arr.length; i++) {
-    // 如果 hash 表中没有当前项
-    if (!n[arr[i]]) {
-      // 存入 hash 表
+    if (arr[i] && !n[arr[i]]) {
       n[arr[i]] = true;
-      // 把当前数组的当前项 push 到临时数组里面
       r.push(arr[i]);
     }
   }
@@ -436,4 +433,7 @@ function unique(arr) {
 unique();
 ```
 
+期望是：去除重复元素并过滤掉`undefined`、`NaN`、`Null`空值
+
+**本题在逻辑上存在一个隐藏的问题，请指出来**
 :::
