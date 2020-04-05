@@ -22,21 +22,21 @@ module.exports = {
     lastUpdated: "最近更新",
     algolia: {
       apiKey: "<API_KEY>",
-      indexName: "<INDEX_NAME>"
+      indexName: "<INDEX_NAME>",
     },
     nav: [
       {
         text: "指南",
-        link: "/guide/"
+        link: "/guide/",
       },
       {
         text: "组件",
         items: [
           {
             text: "Pagination 分页",
-            link: "/feature/component/pagination.md"
-          }
-        ]
+            link: "/feature/component/pagination.md",
+          },
+        ],
       },
       {
         text: "生态系统",
@@ -46,28 +46,28 @@ module.exports = {
             items: [
               {
                 text: "vue-antd-admin",
-                link: "https://github.com/Jaciky/vue-antd-admin"
-              }
-            ]
+                link: "https://github.com/Jaciky/vue-antd-admin",
+              },
+            ],
           },
           {
             text: "帮助",
             items: [
               {
                 text: "常见问题",
-                link: "/guide/other/faq.md"
+                link: "/guide/other/faq.md",
               },
               {
                 text: "捐赠",
-                link: "/donate/"
+                link: "/donate/",
               },
               {
                 text: "更新记录",
-                link: "https://github.com/Jaciky/vue-antd-admin/releases"
-              }
-            ]
-          }
-        ]
+                link: "https://github.com/Jaciky/vue-antd-admin/releases",
+              },
+            ],
+          },
+        ],
       },
       {
         text: "知识体系",
@@ -78,13 +78,13 @@ module.exports = {
           { text: "CSS", link: "/learn/css/" },
           { text: "Javascript", link: "/learn/javascript/" },
           { text: "Vuejs", link: "/learn/vuejs/" },
-          { text: "Markdown", link: "/learn/markdown/" }
-        ]
+          { text: "Markdown", link: "/learn/markdown/" },
+        ],
       },
       {
         text: "about",
-        link: "/about/"
-      }
+        link: "/about/",
+      },
       // {
       //   text: "招聘",
       //   link: "/job/"
@@ -108,8 +108,8 @@ module.exports = {
             "/guide/essentials/codeing_style.md",
             "/guide/essentials/import.md",
             "/guide/essentials/deploy.md",
-            "/guide/essentials/env.md"
-          ]
+            "/guide/essentials/env.md",
+          ],
         },
         {
           title: "进阶",
@@ -125,45 +125,46 @@ module.exports = {
             "/guide/advanced/chart.md",
             "/guide/advanced/defend.md",
             "/guide/advanced/error.md",
-            "/guide/advanced/webpack.md"
-          ]
+            "/guide/advanced/webpack.md",
+          ],
         },
         {
           title: "其它",
-          children: ["/guide/other/faq.md", "/guide/other/release-notes.md"]
-        }
+          children: ["/guide/other/faq.md", "/guide/other/release-notes.md"],
+        },
       ],
       "/feature/component/": ["/feature/component/pagination.md"],
       "/learn/": [
         {
           title: "HTML",
           collapsable: false,
-          children: []
+          children: [],
         },
         {
           title: "CSS",
           collapsable: false,
-          children: []
+          children: [],
         },
         {
           title: "Javascript",
           collapsable: false,
           children: [
             "/learn/javascript/",
+            "/learn/javascript/review.md",
             "/learn/javascript/this.md",
             "/learn/javascript/data_type.md",
             "/learn/javascript/function.md",
             "/learn/javascript/prototype.md",
             "/learn/javascript/es6.md",
-            "/learn/javascript/promise.md"
-          ]
+            "/learn/javascript/promise.md",
+          ],
         },
         {
           title: "Vuejs",
           collapsable: false,
-          children: []
-        }
-      ]
-    }
-  }
+          children: [],
+        },
+      ],
+    },
+  },
 };
