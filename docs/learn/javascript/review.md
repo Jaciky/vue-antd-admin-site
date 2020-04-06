@@ -470,13 +470,144 @@ el.classList.item(0)  //返回e
 
 ## :four_leaf_clover: 堆栈的概念
 
+栈内存(stack)
+
+- 存储基础数据类型
+- 按值访问
+- 存储的值大小固定
+- 由系统自动分配内存空间
+- 空间小，运行效率高
+- 先进后出，后进先出
+- 栈中的 DOM，ajax，setTimeout 会依次进入到队列中,当栈中代码执行完毕后，再将队列中的事件放到执行栈中依次执行。
+- 微任务和宏任务
+
+堆内存(heap)
+
+- 存储引用数据类型
+- 按引用访问
+- 存储的值大小不定，可动态调整
+- 主要用来存放对象
+- 空间大，但是运行效率相对较低
+- 无序存储，可根据引用直接获取
+
+比较
+
+![  ](https://user-gold-cdn.xitu.io/2018/6/13/163f6b03478ae38a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+因此当我们要访问堆内存中的引用数据类型时，实际上我们首先是从栈中获取了该对象的地址引用（或者地址指针），然后再从堆内存中取得我们需要的数据。
+
+```js
+var a1 = 0; // 栈
+var a2 = "this is string"; // 栈
+var a3 = null; // 栈
+
+var b = { m: 20 }; // 变量b存在于栈中，{m: 20} 作为对象存在于堆内存中
+var c = [1, 2, 3]; // 变量c存在于栈中，[1, 2, 3] 作为对象存在于堆内存中
+```
+
 ## :four_leaf_clover: 对象深拷贝
+
+[浅拷贝与深拷贝](https://juejin.im/post/5b5dcf8351882519790c9a2e)
+
+## :four_leaf_clover: 浏览器的事件机制
+
+一道面试题
+
+```js
+console.log(1);
+let promise = new Promise(function (resolve, reject) {
+  console.log(3);
+  resolve(100);
+}).then(function (data) {
+  console.log(100);
+});
+setTimeout(function () {
+  console.log(4);
+});
+console.log(2);
+```
+
+> 上面这个 demo 的结果值是 1 3 2 100 4
+
+对象放在 heap（堆）里，常见的基础类型和函数放在 stack（栈）里，函数执行的时候在栈里执行。栈里函数执行的时候可能会调一些 Dom 操作，ajax 操作和 setTimeout 定时器，这时候要等 stack（栈）里面的所有程序先走 **(注意：栈里的代码是先进后出)**，走完后再走 WebAPIs，WebAPIs 执行后的结果放在 callback queue（回调的队列里，注意：队列里的代码先放进去的先执行），也就是当栈里面的程序走完之后，再从任务队列中读取事件，将队列中的事件放到执行栈中依次执行，这个过程是循环不断的。
+
+1. 所有同步任务都在主线程上执行，形成一个执行栈
+2. 主线程之外，还存在一个任务队列。只要异步任务有了运行结果，就在任务队列之中放置一个事件。
+3. 一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列,将队列中的事件放到执行栈中依次执行
+4. 主线程从任务队列中读取事件，这个过程是循环不断的
+
+接下来需要引入几个概念
+
+- 队列
+- 宏任务和微任务
+- 垃圾回收
+
+可查看以下优秀文章理解这些概念
+
+[10 分钟了解 JS 堆、栈以及事件循环的概念](https://juejin.im/post/5b1deac06fb9a01e643e2a95)  
+[JavaScript 如何工作：对引擎、运行时、调用堆栈的概述](https://juejin.im/post/5a05b4576fb9a04519690d42)  
+[JavaScript 中的垃圾回收和内存泄漏](https://juejin.im/post/5cb33660e51d456e811d2687)
 
 ## :four_leaf_clover: 闭包
 
-## :four_leaf_clover: 作用域
+先通过此文了解闭包的概念
+
+[闭包详解一](https://juejin.im/post/5b081f8d6fb9a07a9b3664b6)
+
+通过防抖函数体会闭包的妙处
+
+```js
+/**
+ * @desc 函数防抖
+ * @param func 函数
+ * @param wait 延迟执行毫秒数
+ * @param immediate true 表立即执行(前沿触发)，false 表非立即执行（后沿触发）
+ */
+function debounce(func, wait, immediate) {
+  let timeout, args, context, timestamp, result;
+
+  const later = function () {
+    // 据上一次触发时间间隔
+    const last = +new Date() - timestamp;
+
+    // 上次被包装函数被调用时间间隔 last 小于设定时间间隔 wait
+    if (last < wait && last > 0) {
+      timeout = setTimeout(later, wait - last);
+    } else {
+      timeout = null;
+      // 如果设定为immediate===true，因为开始边界已经调用过了此处无需调用
+      if (!immediate) {
+        result = func.apply(context, args);
+        if (!timeout) context = args = null;
+      }
+    }
+  };
+
+  return function (...args) {
+    context = this;
+    timestamp = +new Date();
+    const callNow = immediate && !timeout;
+    // 如果延时不存在，重新设定延时
+    if (!timeout) timeout = setTimeout(later, wait);
+    if (callNow) {
+      result = func.apply(context, args);
+      context = args = null;
+    }
+
+    return result;
+  };
+}
+```
+
+以上代码中的 定时器 `timeout` 被作为函数返回值的匿名函数所引用，这导致了词变量不会被回收，也就可以在下次调用函数前判断其是否还存在。
+
+扩展
+
+[50 行代码的 MVVM，感受闭包的艺术](https://juejin.im/post/5b1fa77451882513ea5cc2ca)
 
 ## :four_leaf_clover: call() apply() bind()
+
+[this、apply、call、bind](https://juejin.im/post/59bfe84351882531b730bac2)
 
 ## 参考资料
 
