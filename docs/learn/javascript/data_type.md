@@ -38,6 +38,10 @@ console.log(result);
 
 :::
 
+**计算两个数组的交集、差集、并集、补集**
+
+**求 N 个数组的交集**
+
 ## 参考链接
 
 [前端进阶算法 2：从 Chrome V8 源码看 JavaScript 数组](https://juejin.im/post/5e84ae366fb9a03c840d564f?from=timeline&isappinstalled=0)
