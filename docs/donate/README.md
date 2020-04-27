@@ -8,6 +8,6 @@ sidebar: false
 
 **Alipay**
 
-![donate](http://q7osjwy3t.bkt.clouddn.com/Alipay.jpg)
+![donate](http://jaciky.codelove.cn/Alipay.jpg)
 
-<!-- ![donate](http://q7osjwy3t.bkt.clouddn.com/Wechat.jpg) -->
+<!-- ![donate](http://jaciky.codelove.cn/Wechat.jpg) -->

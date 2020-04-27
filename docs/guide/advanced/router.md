@@ -9,7 +9,7 @@
 
 目录结构
 
-![ ](http://q7osjwy3t.bkt.clouddn.com/1585187123%281%29.jpg)
+![ ](http://jaciky.codelove.cn/1585187123%281%29.jpg)
 
 代码结构
 
@@ -31,18 +31,18 @@ export const constantRoutes = [
   {
     path: "/login",
     component: () => import("_views/login/Login.vue"),
-    hidden: true
+    hidden: true,
   },
   {
     path: "/404",
     component: () => import("@/views/error/404"),
-    hidden: true
+    hidden: true,
   },
   {
     path: "/401",
     component: () => import("@/views/error/401"),
-    hidden: true
-  }
+    hidden: true,
+  },
 ];
 
 // 动态路由
@@ -60,22 +60,22 @@ export const asyncRoutes = [
         name: "Dashboard",
         component: () =>
           import(/* webpackChunkName:"home"*/ "_views/home/Dashboard.vue"),
-        meta: { title: "仪表盘", icon: "" }
-      }
-    ]
+        meta: { title: "仪表盘", icon: "" },
+      },
+    ],
   },
   // 更多的路由模块依次引入并添加，顺序是根据放入先后决定
   business,
   components,
 
   // 404 page must be placed at the end !!!
-  { path: "*", redirect: "/404", hidden: true }
+  { path: "*", redirect: "/404", hidden: true },
 ];
 
 const router = new VueRouter({
   // mode: 'history',
   scrollBehavior: () => ({ x: 0, y: 0 }),
-  routes: constantRoutes
+  routes: constantRoutes,
 });
 
 export default router;

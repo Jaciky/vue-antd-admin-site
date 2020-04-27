@@ -2,7 +2,7 @@
 
 ## 目录结构
 
-![ ](http://q7osjwy3t.bkt.clouddn.com/1585209406%281%29.jpg)
+![ ](http://jaciky.codelove.cn/1585209406%281%29.jpg)
 
 在根目录下创建 `store` 文件夹
 
@@ -25,7 +25,7 @@ export default {
   namespaced: true,
   state,
   mutations,
-  actions
+  actions,
 };
 ```
 
@@ -33,9 +33,9 @@ export default {
 
 ```js
 export default {
-  sidebar: state => state.app.sidebar,
-  token: state => state.user.token,
-  roles: state => state.user.roles
+  sidebar: (state) => state.app.sidebar,
+  token: (state) => state.user.token,
+  roles: (state) => state.user.roles,
 };
 ```
 
@@ -54,8 +54,8 @@ const store = new Vuex.Store({
   state: {},
   getters,
   modules: {
-    app
-  }
+    app,
+  },
 });
 
 export default store;
@@ -69,7 +69,7 @@ import store from "./store";
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
 ```
 
@@ -121,7 +121,7 @@ const actions = {
     console.log(rootGetters["user/pay"]); // 调用user模块的 getters
     commit("user/SET_NAME", "", { root: true }); // 调用user模块的 mutations
     dispatch("user/getInfo", {}, { root: true }); // 调用user模块的 actions
-  }
+  },
 };
 ```
 
