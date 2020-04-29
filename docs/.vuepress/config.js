@@ -152,6 +152,7 @@ module.exports = {
             "/learn/javascript/",
             "/learn/javascript/review.md",
             "/learn/javascript/this.md",
+            "/learn/javascript/algorithm.md",
             "/learn/javascript/data_type.md",
             "/learn/javascript/function.md",
             "/learn/javascript/prototype.md",
